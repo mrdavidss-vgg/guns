@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guns</title>
+</head>
+<body>
+  <noscript></noscript>
+    <script>
+(function () {
+    'use strict';
+    console.log('Script is running!'); // Debugging: Check if script runs
 
+    // Function to create the UI
+    function createUI() {
+        // Create the container for the UI
+        const ui = document.createElement('div');
+        ui.style.position = 'fixed';
+        ui.style.top = '20px';
+        ui.style.left = '20px';
+        ui.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+        ui.style.color = 'white';
+        ui.style.padding = '6px 12px';
+        ui.style.borderRadius = '5px';
+        ui.style.zIndex = '9999';
+        ui.style.display = 'flex';
+        ui.style.alignItems = 'center';
+        ui.style.gap = '6px';
+        ui.style.fontSize = '12px';
+        ui.style.cursor = 'grab';
+
+        // Add text to the UI
+        const text = document.createElement('span');
+        text.textContent = 'InstaDownload X.2';
+        text.style.fontSize = '12px';
+
+        // Add a button
+        const button = document.createElement('button');
+        button.textContent = 'Download';
+        button.style.padding = '3px 10px';
+        button.style.border = 'none';
+        button.style.borderRadius = '3px';
+        button.style.cursor = 'pointer';
+        button.style.backgroundColor = '#FF0000';
+        button.style.color = 'white';
+
+        // Add an event listener to the button
+        button.addEventListener('click', function () {
+            console.log('Button clicked!'); // Debugging: Check if button works
+            // Get the video ID from the URL
+            const videoId = new URLSearchParams(window.location.search).get('v');
+
+            if (videoId) {
+                // Construct the download link (replace with your desired service)
+                const downloadLink = `https://ssyou.tube/convert/?videoId=${videoId}`;
+
+                // Redirect the user to the download link
+                window.location.href = downloadLink;
+            } else {
+                alert('Could not find the video ID in the URL.');
+            }
+        });
+
+        // Append the text and button to the UI
+        ui.appendChild(text);
+        ui.appendChild(button);
+
+        // Append the UI to the body of the page
+        document.body.appendChild(ui);
+        console.log('UI appended to the body'); // Debugging: Check if UI is appended
+    }
+
+    // Ensure the DOM is fully loaded before creating the UI
+    document.addEventListener('DOMContentLoaded', function () {
+        createUI();
+    });
+})();
+    </script>
+  <noscript>
+    <p>Please enable javascript for testing purporses.</p>
+  </noscript>
+</body>
+</html>
